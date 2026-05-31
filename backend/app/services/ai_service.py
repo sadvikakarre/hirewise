@@ -7,8 +7,7 @@ load_dotenv()
 
 FEATHERLESS_API_KEY = "rc_90334bb3ab0e5ce73ab595b7eb69e7389447d7a84475a5ab16b0da6ad686dc58"
 FEATHERLESS_URL = "https://api.featherless.ai/v1/chat/completions"
-MODEL = "meta-llama/Llama-3.2-3B-Instruct"
-
+MODEL = "mistralai/Mistral-7B-Instruct-v0.3"
 headers = {
     "Authorization": f"Bearer {FEATHERLESS_API_KEY}",
     "Content-Type": "application/json"
