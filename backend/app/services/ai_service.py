@@ -1,3 +1,4 @@
+import os
 import json
 import re
 import requests
@@ -5,7 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-GROQ_API_KEY = "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"
+GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
 GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 MODEL = "llama-3.3-70b-versatile"
 
