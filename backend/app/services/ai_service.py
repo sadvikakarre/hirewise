@@ -5,11 +5,12 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-FEATHERLESS_API_KEY = "rc_90334bb3ab0e5ce73ab595b7eb69e7389447d7a84475a5ab16b0da6ad686dc58"
-FEATHERLESS_URL = "https://api.featherless.ai/v1/chat/completions"
-MODEL = "mistralai/Mistral-7B-Instruct-v0.3"
+GROQ_API_KEY = "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"
+GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
+MODEL = "llama-3.3-70b-versatile"
+
 headers = {
-    "Authorization": f"Bearer {FEATHERLESS_API_KEY}",
+    "Authorization": f"Bearer {GROQ_API_KEY}",
     "Content-Type": "application/json"
 }
 
@@ -20,9 +21,9 @@ def call_ai(prompt: str) -> str:
         "messages": [{"role": "user", "content": prompt}],
         "max_tokens": 1000
     }
-    response = requests.post(FEATHERLESS_URL, json=payload, headers=headers)
+    response = requests.post(GROQ_URL, json=payload, headers=headers)
     data = response.json()
-    print("Featherless response:", data)
+    print("Groq response:", data)
     if "choices" in data:
         return data["choices"][0]["message"]["content"].strip()
     return "{}"
